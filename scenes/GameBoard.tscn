@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://entities/PlayerBar/CommandList.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sfx/fix.wav" type="AudioStream" id=2]
+[ext_resource path="res://scenes/GameBoard.gd" type="Script" id=3]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/chipbase.png" type="Texture" id=5]
+[ext_resource path="res://assets/Kenney Pixel Square.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/sfx/shock.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/daze.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sfx/move.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sfx/no_energy.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sfx/next_stage.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sfx/shuffle.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sfx/error.wav" type="AudioStream" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="GameBoard" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="PlayerHand" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 300 )
+
+[node name="PlayerCommands" parent="." instance=ExtResource( 1 )]
+position = Vector2( 165, 200 )
+scale = Vector2( 0.5, 1 )
+
+[node name="UI" parent="." instance=ExtResource( 4 )]
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="Discard" type="Node2D" parent="."]
+position = Vector2( 115, 230 )
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2( 40, 230 )
+z_index = 1
+
+[node name="ChipBase" type="Sprite" parent="Deck"]
+texture = ExtResource( 5 )
+
+[node name="DeckCount" type="Label" parent="Deck/ChipBase"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemySpawnPoint" type="Node2D" parent="."]
+position = Vector2( 320, 80 )
+
+[node name="ShockSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0
+
+[node name="DazeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="FixSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -12.0
+
+[node name="MoveSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -18.0
+
+[node name="NoEnergySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -8.0
+
+[node name="NextStageSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="ShuffleSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -4.0
+
+[node name="ErrorDrawSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -4.0
+
+[connection signal="animation_completed" from="UI" to="." method="_on_Command_animation_completed"]
+[connection signal="player_turn_ended" from="UI" to="." method="_on_UI_player_turn_ended"]

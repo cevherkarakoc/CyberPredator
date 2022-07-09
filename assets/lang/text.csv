@@ -1,0 +1,32 @@
+,en,tr
+start,Start,Baslat
+game_over,Game Over,Oyun Bitti
+end_turn,End Turn,Turu Bitir
+shock,Shock,Sok
+fix,Fix,Tamir Et
+shockwave,Shockwave,Sok DALGASI
+error,Error,Hata
+system_error,System Error,Sistem HATASI
+low_frequency,Low Frequency,DüSük Frekans
+cost,Cost,Masraf
+damage,Damage,Hasar
+area_damage,Area Damage,Alan HASARI
+heal,Heal,IYILESME
+daze,Daze,Sersemleme
+choose_enemy,Choose An Enemy,Bir Düsman Seç
+choose_one,Choose One,Birini Seç
+deck,Deck,Deste
+discard,Discard,ISKARTA
+error_spreading,System Error is Spreading,Sistem HATASI YAYILIYOR
+sacrifice,Sacrifice One,Birini Feda Et
+stage,Stage,Kademe
+continue,Continue,Devam Et
+shop,shop,Dükkan
+max_h,Max Health,Max SAGLIK
+max_e,Max Energy,Max Enerji
+inc,Increase,ARTIR
+turn,turn,Tur
+remove,remove,Hata
+an_error,an error,Sil
+sinewave,sinwave,Sin DALGASI
+coswave,coswave,Cos DALGASI

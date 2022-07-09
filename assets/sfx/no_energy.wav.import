@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/no_energy.wav-7b4c6b07c72b84b02b2e4f98bcd71575.sample"
+
+[deps]
+
+source_file="res://assets/sfx/no_energy.wav"
+dest_files=[ "res://.import/no_energy.wav-7b4c6b07c72b84b02b2e4f98bcd71575.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

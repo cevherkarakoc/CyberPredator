@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/PlayerBar/CommandList.gd" type="Script" id=1]
+
+[node name="CommandList" type="Polygon2D"]
+color = Color( 0.705882, 0.705882, 0.705882, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 60, 640, 60, 640, 0 )
+script = ExtResource( 1 )

@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Kenney Pixel Square.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/MenuScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/jam3.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/game_over.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+extra_spacing_char = 2
+extra_spacing_space = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 3
+extra_spacing_char = 2
+extra_spacing_space = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="MenuScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0.952941, 0.270588, 0.270588, 1 )
+text = "Cyber Predator"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="jam3" type="Sprite" parent="."]
+position = Vector2( 540, 300 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+anchor_right = 1.0
+margin_top = 71.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -25.0
+margin_right = 75.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -12.0
+
+[node name="English" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -40.0
+margin_right = 110.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 4 )
+text = "English"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Turkish" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 120.0
+margin_top = -40.0
+margin_right = 212.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 4 )
+text = "TÜRKÇE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="English" to="." method="_on_English_pressed"]
+[connection signal="pressed" from="Turkish" to="." method="_on_Turkish_pressed"]
